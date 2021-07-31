@@ -13,6 +13,6 @@ app.use(morgan("common"));
 
 app.use("/channels", channelRoute);
 
-app.listen(3300, () => {
+app.listen(4400, () => {
     console.log("Backend server is running!")
 });
