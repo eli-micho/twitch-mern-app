@@ -27,8 +27,8 @@ app.use(function(req, res, next) {
 });
 
 //Test for heroku
-/* app.get('/', (req, res) => { res.send('Hello from Express!')})
- */
+app.get('/', (req, res) => { res.send('Hello from Express!')})
+
 
 app.listen(process.env.PORT || 4400, () => {
     console.log("Backend server is running!")
