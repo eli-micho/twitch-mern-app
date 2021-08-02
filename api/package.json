@@ -7,7 +7,8 @@
     "start": "node index.js",
     "build": "webpack",
     "start-server": "nodemon dist/main.js",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
