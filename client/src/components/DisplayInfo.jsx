@@ -93,7 +93,7 @@ const ChannelInformationCard = ({channel}) => {
     useEffect(() => {
         const fetchFollowers = async () => {
             const channelID = channelInfo.id
-            const followerCount = await axios.get(`https://twitch-mern-app.herokuapp.com//channels/select/${channelID}/followers`);
+            const followerCount = await axios.get(`https://twitch-mern-app.herokuapp.com/channels/select/${channelID}/followers`);
             setFollowers(followerCount.data.total);
         }
         fetchFollowers()
@@ -103,7 +103,7 @@ const ChannelInformationCard = ({channel}) => {
         dispatch({type: "RESET_SEARCH"});
         const fetchFeaturedChannels = async () => {
             try{
-                const res = await axios.get("https://twitch-mern-app.herokuapp.com//channels")
+                const res = await axios.get("https://twitch-mern-app.herokuapp.com/channels")
                 dispatch({type: "LOAD_FEATURED", payload: res.data.data})
             }catch(err){
                 console.log(err)
@@ -158,7 +158,7 @@ export default function DisplayInfo() {
     useEffect(() => {
         const fetchFeaturedChannels = async () => {
             try{
-                const res = await axios.get("https://twitch-mern-app.herokuapp.com//channels")
+                const res = await axios.get("https://twitch-mern-app.herokuapp.com/channels")
                 dispatch({type: "LOAD_FEATURED", payload: res.data.data})
             }catch(err){
                 console.log(err)
@@ -173,7 +173,7 @@ export default function DisplayInfo() {
             type: "SEARCH_START"
         });
         try {
-            const res = await axios.get(`https://twitch-mern-app.herokuapp.com//channels/search/${query}`);
+            const res = await axios.get(`https://twitch-mern-app.herokuapp.com/channels/search/${query}`);
             dispatch({type: "SEARCH_SUCCESS", payload: res.data.data});
         }catch(err){
             console.log(err);
@@ -183,7 +183,7 @@ export default function DisplayInfo() {
     const handleChannelClick = async (channel) => {
         try {
             const channelID = channel.id;
-            const res = await axios.get(`https://twitch-mern-app.herokuapp.com//channels/select/${channelID}`)
+            const res = await axios.get(`https://twitch-mern-app.herokuapp.com/channels/select/${channelID}`)
             dispatch({type: "SELECT_CHANNEL", payload: res.data.data})
         }catch(err){
             console.log(err);
